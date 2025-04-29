@@ -1,70 +1,110 @@
-# Getting Started with Create React App
+# Google Keep Clone Frontend
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+See on lihtne React frontend Google Keep Clone API jaoks. See võimaldab kasutajatel luua, lugeda, uuendada ja kustutada märkmeid ning hallata märgiste abil nende korraldamist.
 
-## Available Scripts
+## Võimalused
 
-In the project directory, you can run:
+- Kasutaja autentimine (sisselogimine/registreerimine)
+- Märkmete haldamine (loomine, lugemine, uuendamine, kustutamine)
+- Siltide haldamine (loomine, kustutamine, märkmete filtreerimine sildi järgi)
+- Meeldetuletused märkmetele
+- Kohanduv disain
 
-### `npm start`
+## Kasutatavad tehnoloogiad
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- React
+- React Router
+- Axios API päringute jaoks
+- Context API oleku halduseks
+- CSS stiilide jaoks
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Alustamine
 
-### `npm test`
+### Eeldused
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Node.js (v14 või uuem)
+- npm või yarn
+- Google Keep Clone API backend töötab aadressil http://localhost:3000
 
-### `npm run build`
+### Paigaldamine
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+1. Klooni see repositoorium
+```bash
+git clone https://github.com/sinu-kasutajanimi/google-keep-frontend.git
+cd google-keep-frontend
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+2. Paigalda sõltuvused
+```bash
+npm install
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+3. Käivita arendusserver
+```bash
+npm start
+```
 
-### `npm run eject`
+4. Ava brauser ja navigeeri aadressile http://localhost:3001
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Veaotsingu juhend
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Kui teil on probleeme registreerimise või sisselogimisega, proovige järgmisi samme:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### 1. Kontrollige, et backend töötab korrektselt
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Veenduge, et backend server jookseb pordil 3000 ja vastab päringutele. Saate seda kontrollida käivitades:
 
-## Learn More
+```bash
+curl http://localhost:3000
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### 2. Kontrollige konsoolist veateated
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Avage brauseri arendaja tööriistad (F12 või Ctrl+Shift+I) ja vaadake konsoolist, mis vead seal ilmuvad. Need võivad aidata tuvastada probleemi.
 
-### Code Splitting
+### 3. CORS probleemid
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Kui näete CORS vigu, veenduge, et backend toetab päringuid teie frontendi serverilt:
+- Frontend töötab pordil 3001
+- Backend töötab pordil 3000
+- Backend on seadistatud lubama CORS päringuid
 
-### Analyzing the Bundle Size
+### 4. Päringute jälgimine
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Meie API teenus on seadistatud logima konsoolile kõik päringud ja vastused, mis aitab teil jälgida, mis päringud ebaõnnestuvad ja miks.
 
-### Making a Progressive Web App
+### 5. API baasaadressi muutmine
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+Kui teie backend server ei kasuta porti 3000, muutke `.env` failis `REACT_APP_API_URL` väärtust.
 
-### Advanced Configuration
+## Projekti struktuur
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+```
+src/
+  ├── components/      # Taaskasutatavad UI komponendid
+  │   ├── Auth/        # Autentimise komponendid
+  │   ├── Notes/       # Märkmete komponendid
+  │   ├── Tags/        # Siltide komponendid
+  │   └── Layout/      # Paigutuse komponendid (päis, külgriba)
+  ├── services/        # API teenuse funktsioonid
+  ├── contexts/        # React Context oleku halduseks
+  └── utils/           # Utiliitfunktsioonid
+```
 
-### Deployment
+## API seadistus
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+Frontend on seadistatud suhtlema backendiga, mis töötab aadressil `http://localhost:3000`. Kui teie backend töötab mõnel teisel aadressil, uuendage `.env` failis `REACT_APP_API_URL` väärtust.
 
-### `npm run build` fails to minify
+## Paigaldamine tootmisse
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Rakenduse ehitamiseks tootmiskeskkonna jaoks:
+
+```bash
+npm run build
+```
+
+See loob `build` kataloogi optimeeritud tootmisfailidega, mida saab paigutada mistahes staatilise majutuse teenusesse.
+
+## Litsents
+
+See projekt on litsentseeritud MIT litsentsi alusel.
