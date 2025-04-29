@@ -51,6 +51,19 @@ export const logout = async () => {
 };
 
 // Check if the user is logged in
-export const isAuthenticated = () => {
+export const isLoggedIn = () => {
     return Boolean(localStorage.getItem('token'));
+};
+
+// Update user details (username and/or password)
+export const updateUserDetails = async (userId, userData) => {
+    try {
+        console.log('Updating user details:', { userId, ...userData });
+        const response = await api.patch(`/users/${userId}`, userData);
+        console.log('Update user response:', response.data);
+        return response.data;
+    } catch (error) {
+        console.error('Update user error:', error.response?.data || error.message);
+        throw error.response?.data || { message: 'Failed to update user details' };
+    }
 };

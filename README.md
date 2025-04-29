@@ -2,21 +2,6 @@
 
 See on lihtne React frontend Google Keep Clone API jaoks. See võimaldab kasutajatel luua, lugeda, uuendada ja kustutada märkmeid ning hallata märgiste abil nende korraldamist.
 
-## Võimalused
-
-- Kasutaja autentimine (sisselogimine/registreerimine)
-- Märkmete haldamine (loomine, lugemine, uuendamine, kustutamine)
-- Siltide haldamine (loomine, kustutamine, märkmete filtreerimine sildi järgi)
-- Meeldetuletused märkmetele
-- Kohanduv disain
-
-## Kasutatavad tehnoloogiad
-
-- React
-- React Router
-- Axios API päringute jaoks
-- Context API oleku halduseks
-- CSS stiilide jaoks
 
 ## Alustamine
 
@@ -77,19 +62,6 @@ Meie API teenus on seadistatud logima konsoolile kõik päringud ja vastused, mi
 
 Kui teie backend server ei kasuta porti 3000, muutke `.env` failis `REACT_APP_API_URL` väärtust.
 
-## Projekti struktuur
-
-```
-src/
-  ├── components/      # Taaskasutatavad UI komponendid
-  │   ├── Auth/        # Autentimise komponendid
-  │   ├── Notes/       # Märkmete komponendid
-  │   ├── Tags/        # Siltide komponendid
-  │   └── Layout/      # Paigutuse komponendid (päis, külgriba)
-  ├── services/        # API teenuse funktsioonid
-  ├── contexts/        # React Context oleku halduseks
-  └── utils/           # Utiliitfunktsioonid
-```
 
 ## API seadistus
 

@@ -21,13 +21,25 @@ const Header = () => {
 
             <div className="header-right">
                 {currentUser ? (
-                    <button onClick={handleLogout} className="logout-button">
-                        Logout
-                    </button>
+                    <div className="user-menu">
+            <span className="username">
+              Tere, {currentUser.username}!
+            </span>
+                        <Link to="/profile" className="profile-link">
+                            Minu profiil
+                        </Link>
+                        <button onClick={handleLogout} className="logout-button">
+                            Logi välja
+                        </button>
+                    </div>
                 ) : (
                     <div className="auth-links">
-                        <Link to="/login" className="login-link">Login</Link>
-                        <Link to="/register" className="register-link">Register</Link>
+                        <Link to="/login" className="login-link">
+                            Logi sisse
+                        </Link>
+                        <Link to="/register" className="register-link">
+                            Registreeri
+                        </Link>
                     </div>
                 )}
             </div>

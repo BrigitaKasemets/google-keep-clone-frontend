@@ -45,6 +45,14 @@ button:disabled {
   border-radius: 4px;
 }
 
+.success-message {
+  color: #0f9d58;
+  margin: 10px 0;
+  padding: 8px;
+  background-color: #e6f4ea;
+  border-radius: 4px;
+}
+
 /* Header Styles */
 .app-header {
   display: flex;
@@ -82,8 +90,28 @@ button:disabled {
   font-weight: 500;
 }
 
+.user-menu {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.username {
+  color: #202124;
+  font-weight: 500;
+}
+
+.profile-link {
+  color: #202124;
+  font-weight: 500;
+  text-decoration: none;
+  padding: 6px 12px;
+  background-color: #fff;
+  border-radius: 4px;
+}
+
 /* Auth Forms */
-.login-container, .register-container {
+.login-container, .register-container, .profile-container {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -91,7 +119,7 @@ button:disabled {
   padding: 24px;
 }
 
-.login-card, .register-card {
+.login-card, .register-card, .profile-card {
   background-color: white;
   border-radius: 8px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
@@ -100,7 +128,7 @@ button:disabled {
   max-width: 400px;
 }
 
-.login-card h2, .register-card h2 {
+.login-card h2, .register-card h2, .profile-card h2 {
   margin-bottom: 24px;
   color: #202124;
   text-align: center;
@@ -124,7 +152,7 @@ button:disabled {
   font-size: 16px;
 }
 
-.login-button, .register-button {
+.login-button, .register-button, .update-button {
   width: 100%;
   background-color: #fbbc04;
   color: #202124;
@@ -391,7 +419,7 @@ button:disabled {
 
 .form-actions {
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
   gap: 12px;
   margin-top: 16px;
 }
@@ -399,12 +427,16 @@ button:disabled {
 .cancel-button {
   background-color: #f1f3f4;
   color: #5f6368;
+  padding: 10px;
+  flex: 1;
 }
 
-.submit-button {
+.update-button {
   background-color: #fbbc04;
   color: #202124;
   font-weight: 500;
+  padding: 10px;
+  flex: 2;
 }
 
 /* Loading States */
