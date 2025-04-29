@@ -1,4 +1,68 @@
-/* General Styles */
+/* Profile styles */
+.delete-account-section {
+  margin-top: 40px;
+  padding-top: 20px;
+  border-top: 1px solid #dadce0;
+}
+
+.delete-account-section h3 {
+  color: #d93025;
+  margin-bottom: 10px;
+}
+
+.delete-account-section p {
+  margin-bottom: 15px;
+  color: #5f6368;
+  font-size: 14px;
+}
+
+.delete-account-button {
+  background-color: #d93025;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 4px;
+  transition: background-color 0.2s;
+}
+
+.delete-account-button:hover {
+  background-color: #c5221f;
+}
+
+.delete-confirmation {
+  background-color: #fce8e6;
+  border: 1px solid #d93025;
+  border-radius: 4px;
+  padding: 16px;
+  margin-top: 10px;
+}
+
+.warning-text {
+  color: #d93025;
+  font-weight: 500;
+  margin-bottom: 15px;
+}
+
+.confirmation-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.cancel-delete {
+  background-color: #f1f3f4;
+  color: #5f6368;
+  flex: 1;
+}
+
+.confirm-delete {
+  background-color: #d93025;
+  color: white;
+  flex: 2;
+}
+
+.changed-field {
+  border-color: #fbbc04 !important;
+  background-color: #fff8e1;
+}/* General Styles */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -37,20 +101,50 @@ button:disabled {
   cursor: not-allowed;
 }
 
-.error-message {
-  color: #d93025;
+.error-message, .success-message {
   margin: 10px 0;
   padding: 8px;
-  background-color: #fce8e6;
   border-radius: 4px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  animation: fadeIn 0.3s ease-in;
+}
+
+.error-message {
+  color: #d93025;
+  background-color: #fce8e6;
 }
 
 .success-message {
   color: #0f9d58;
-  margin: 10px 0;
-  padding: 8px;
   background-color: #e6f4ea;
-  border-radius: 4px;
+}
+
+.message-content {
+  flex: 1;
+}
+
+.close-message {
+  background: none;
+  border: none;
+  font-size: 20px;
+  line-height: 1;
+  padding: 0 5px;
+  cursor: pointer;
+}
+
+.error-message .close-message {
+  color: #d93025;
+}
+
+.success-message .close-message {
+  color: #0f9d58;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 /* Header Styles */

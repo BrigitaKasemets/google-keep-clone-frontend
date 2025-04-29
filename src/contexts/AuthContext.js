@@ -1,5 +1,5 @@
 import React, { createContext, useState, useEffect, useContext } from 'react';
-import { login, logout, register, updateUserDetails, isLoggedIn } from '../services/auth';
+import { login, logout, register, updateUserDetails, isLoggedIn, deleteUserAccount } from '../services/auth';
 import { jwtDecode } from 'jwt-decode';
 
 // Create the auth context
@@ -127,15 +127,38 @@ export const AuthProvider = ({ children }) => {
         }
     };
 
+    // Delete user account
+    const handleDeleteAccount = async () => {
+        if (!currentUser || !currentUser.id) {
+            setError('You must be logged in to delete your account');
+            return false;
+        }
+
+        try {
+            setError('');
+            setLoading(true);
+            await deleteUserAccount(currentUser.id);
+            setCurrentUser(null);
+            return true;
+        } catch (error) {
+            setError(error.message || 'Failed to delete account');
+            return false;
+        } finally {
+            setLoading(false);
+        }
+    };
+
     // Create the value object that will be provided to consumers
     const value = {
         currentUser,
         loading,
         error,
+        setError, // Expose setError to allow clearing errors
         login: handleLogin,
         register: handleRegister,
         logout: handleLogout,
         updateUserDetails: handleUpdateUserDetails,
+        deleteAccount: handleDeleteAccount,
         isAuthenticated: () => Boolean(currentUser)
     };
 

@@ -67,3 +67,18 @@ export const updateUserDetails = async (userId, userData) => {
         throw error.response?.data || { message: 'Failed to update user details' };
     }
 };
+
+// Delete user account
+export const deleteUserAccount = async (userId) => {
+    try {
+        console.log('Deleting user account:', userId);
+        await api.delete(`/users/${userId}`);
+        console.log('User account deleted successfully');
+        // Remove token after account deletion
+        localStorage.removeItem('token');
+        return true;
+    } catch (error) {
+        console.error('Delete user error:', error.response?.data || error.message);
+        throw error.response?.data || { message: 'Failed to delete user account' };
+    }
+};
