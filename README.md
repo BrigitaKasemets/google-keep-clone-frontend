@@ -1,82 +1,53 @@
 # Google Keep Clone Frontend
 
-See on lihtne React frontend Google Keep Clone API jaoks. See võimaldab kasutajatel luua, lugeda, uuendada ja kustutada märkmeid ning hallata märgiste abil nende korraldamist.
+A React-based frontend for the Google Keep Clone API. This application allows users to create, read, update, and delete notes with tags and reminders.
+This frontend is designed to work with the [Google Keep Clone API backend] (https://github.com/metsarnele/google-keep-clone-api). Make sure to have the backend running before using this frontend.
 
+## Features
 
-## Alustamine
+- User authentication (register, login, profile management)
+- Create, edit, and delete notes
+- Organize notes with tags
+- Set reminders for notes
+- Responsive design
 
-### Eeldused
+## Prerequisites
 
-- Node.js (v14 või uuem)
-- npm või yarn
-- Google Keep Clone API backend töötab aadressil http://localhost:3000
+- Node.js (v14 or later)
+- npm or yarn
+- Google Keep Clone API backend running on http://localhost:3000
 
-### Paigaldamine
+## Installation
 
-1. Klooni see repositoorium
+1. Clone this repository
 ```bash
-git clone https://github.com/sinu-kasutajanimi/google-keep-frontend.git
+git clone https://github.com/your-username/google-keep-frontend.git
 cd google-keep-frontend
 ```
 
-2. Paigalda sõltuvused
+2. Install dependencies
 ```bash
 npm install
 ```
 
-3. Käivita arendusserver
+3. Create a `.env` file in the root directory with the following content:
+```
+REACT_APP_API_URL=http://localhost:3000
+```
+
+4. Start the development server
 ```bash
 npm start
 ```
 
-4. Ava brauser ja navigeeri aadressile http://localhost:3001
+5. Open your browser and navigate to http://localhost:3000
 
-## Veaotsingu juhend
+## Building for Production
 
-Kui teil on probleeme registreerimise või sisselogimisega, proovige järgmisi samme:
-
-### 1. Kontrollige, et backend töötab korrektselt
-
-Veenduge, et backend server jookseb pordil 3000 ja vastab päringutele. Saate seda kontrollida käivitades:
-
-```bash
-curl http://localhost:3000
-```
-
-### 2. Kontrollige konsoolist veateated
-
-Avage brauseri arendaja tööriistad (F12 või Ctrl+Shift+I) ja vaadake konsoolist, mis vead seal ilmuvad. Need võivad aidata tuvastada probleemi.
-
-### 3. CORS probleemid
-
-Kui näete CORS vigu, veenduge, et backend toetab päringuid teie frontendi serverilt:
-- Frontend töötab pordil 3001
-- Backend töötab pordil 3000
-- Backend on seadistatud lubama CORS päringuid
-
-### 4. Päringute jälgimine
-
-Meie API teenus on seadistatud logima konsoolile kõik päringud ja vastused, mis aitab teil jälgida, mis päringud ebaõnnestuvad ja miks.
-
-### 5. API baasaadressi muutmine
-
-Kui teie backend server ei kasuta porti 3000, muutke `.env` failis `REACT_APP_API_URL` väärtust.
-
-
-## API seadistus
-
-Frontend on seadistatud suhtlema backendiga, mis töötab aadressil `http://localhost:3000`. Kui teie backend töötab mõnel teisel aadressil, uuendage `.env` failis `REACT_APP_API_URL` väärtust.
-
-## Paigaldamine tootmisse
-
-Rakenduse ehitamiseks tootmiskeskkonna jaoks:
+To build the application for production:
 
 ```bash
 npm run build
 ```
 
-See loob `build` kataloogi optimeeritud tootmisfailidega, mida saab paigutada mistahes staatilise majutuse teenusesse.
-
-## Litsents
-
-See projekt on litsentseeritud MIT litsentsi alusel.
+This will create a `build` directory with optimized production files that can be deployed to any static hosting service.
